@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 
 import codingwithmitch.com.databindinggettingstarted.databinding.DialogChooseQuantityBinding;
+import codingwithmitch.com.databindinggettingstarted.listeners.ChooserDialogListener;
 
 
 public class ChooseQuantityDialog extends DialogFragment {
@@ -34,7 +35,8 @@ public class ChooseQuantityDialog extends DialogFragment {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             Log.d(TAG, "onItemSelected: selected: " + adapterView.getItemAtPosition(i));
-
+            ChooserDialogListener chooserDialogListener = (ChooserDialogListener)getActivity();
+            chooserDialogListener.setQuantity(Integer.parseInt((String) adapterView.getItemAtPosition(i)));
             getDialog().dismiss();
         }
     };
