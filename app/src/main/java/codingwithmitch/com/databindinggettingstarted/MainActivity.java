@@ -1,5 +1,6 @@
 package codingwithmitch.com.databindinggettingstarted;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import codingwithmitch.com.databindinggettingstarted.databinding.ActivityMainBin
 import codingwithmitch.com.databindinggettingstarted.listeners.AddToCartClickListener;
 import codingwithmitch.com.databindinggettingstarted.listeners.ChooserDialogListener;
 import codingwithmitch.com.databindinggettingstarted.models.Product;
+import codingwithmitch.com.databindinggettingstarted.remote.activity.PostActivity;
 import codingwithmitch.com.databindinggettingstarted.util.Products;
 
 public class MainActivity extends AppCompatActivity implements ChooserDialogListener, AddToCartClickListener {
@@ -21,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements ChooserDialogList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        startActivity(new Intent(this, PostActivity.class));
 
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
